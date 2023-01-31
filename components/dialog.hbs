@@ -1,0 +1,45 @@
+{{#if this.containsToDo}}
+    <span class="day-with-todo-notification">!</span>
+{{/if}}
+
+{{(this.dialogIDNumber @number)}}
+
+<dialog id="dialog-{{@number}}">
+    <h3>{{@date}}</h3>
+
+    <p>Write your TO DO task!</p>
+    <input type="text" id="text-input-{{@number}}" placeholder="Ex.: Meeting at work" {{on "keyup" this.disabledButton}}><br>
+    
+    <select id="time-select-{{@number}}" {{on "change" this.disabledButton}}>
+            <option value="default" selected>Select the time</option>
+            {{#each this.times as |item|}}
+                {{#if item.availability}} 
+                    <option>{{item.time}}</option>
+                {{else}}
+                    <option disabled>{{item.time}}</option>
+                {{/if}}
+            {{/each}}        
+    </select><br>
+
+    {{#if this.allowClick}}
+        <button {{on "click" this.addToDo}} id="add-to-do"> Add </button><br>
+    {{else}}
+        <button {{on "click" this.addToDo}} id="add-to-do" disabled> Add </button><br>
+    {{/if}}
+
+    <div class="to-do-list-container">
+        <ul>
+            {{#each this.toDoList as |item|}}            
+                <li>{{item}}</li>            
+            {{/each}}
+        </ul>
+    </div>
+
+    <button 
+        {{on "click" this.closeDialog}}
+        id="close-dialog">
+        Close
+    </button>
+
+</dialog>
+

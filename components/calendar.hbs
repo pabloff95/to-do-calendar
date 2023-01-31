@@ -1,0 +1,24 @@
+<div class="calendar-main-container">
+    
+    <div class="month-controller-container">        
+        <div class="month-controller-section">
+            <h2>{{this.displayingYear}}</h2>
+        </div>
+        <div class="month-controller-section">
+            <button id="previus-month" class="button" type="button" {{on "click" this.showPreviousMonth}}>
+                Prev
+            </button>
+            <h2 id="display-month">{{this.displayingMonth.text}}</h2>
+            <button id="previus-month" class="button" type="button" {{on "click" this.showNextMonth}}>
+                Next
+            </button>
+        </div>
+    </div>
+
+    {{#each (this.getCalendar this.displayingMonth.number this.displayingYear) as |week|}}
+        <Calendar::Week
+            @week={{week.week}}
+            @days={{week.days}}>
+        </Calendar::Week>
+    {{/each}}    
+</div>

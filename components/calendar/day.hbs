@@ -1,0 +1,10 @@
+<div class="day-container {{this.currenMonthClass @current-month}}">
+        <div class="day-text-content" {{on "click" (fn this.showDialog @number @date)}}>
+                <span class="week-day">{{@day}}</span>
+                <span class="number-day">{{@number}}</span>
+        </div>
+
+        {{#if @date}}
+                <Dialog @number={{@number}} @date={{@date}}></Dialog>
+        {{/if}}
+</div>

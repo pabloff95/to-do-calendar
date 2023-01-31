@@ -1,0 +1,107 @@
+/*------ MONTH DISPLAYED CONTROLLER ------*/
+.month-controller-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1vh;
+    align-items: center;
+    margin-bottom: 2vh;
+}
+.button{
+    height: fit-content;
+}
+.month-controller-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+}
+.month-controller-section h2{
+    margin: 0.5vh auto;
+}
+#display-month{
+    width: 10vw;
+    text-align: center;
+}
+
+/*----- CALENDAR -----*/
+.calendar-main-container{    
+    margin: auto;
+    display: flex;    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+/*------ WEEKS ------*/
+.week-container{
+    display: flex;
+    flex-direction: row;
+    margin: 0.25vh 0;    
+    gap: 0.25vw;
+}
+/*------ DAYS ------*/
+.day-container{    
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 1px 0px 1px #1f1f1f,
+                -1px 0px 1px #1f1f1f,
+                0px 1px 1px #1f1f1f,
+                0px -1px 1px #1f1f1f;        
+    width: 6.5vw;    
+}
+.day-text-content{
+    padding: 1vh 0;    
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.current-month{
+    background-color: rgb(176, 241, 252);
+}
+.current-month:hover, .current-month:hover .number-day{
+    cursor: pointer;
+    background-color: orange;
+    color: white;
+}
+.not-current-month{
+    background-color: lightgray;
+    opacity: 0.5;
+}
+/*------ TEXT IN DAYS ------*/
+.week-day{
+    font-size: 0.5rem;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.number-day{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.current-month .number-day{    
+    color: darkblue;    
+}
+
+/*-------- DIALOG --------------*/
+dialog{
+    cursor: default;
+}
+.day-with-todo-notification{
+    position: absolute;
+    top: 0;
+    right: 0.1vw;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: red;
+}
+
+@media all and (max-width: 768px){
+    .week-day{
+        display: none;
+    }    
+}

@@ -1,0 +1,10 @@
+<div class="week-container">
+    {{#each @days as |day|}}
+        <Calendar::Day
+            @day={{day.day}}
+            @number={{day.number}}
+            @date={{day.date}}
+            @current-month={{day.currentMonth}}>
+        </Calendar::Day>
+    {{/each}}
+</div>
